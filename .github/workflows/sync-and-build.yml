@@ -43,9 +43,14 @@ jobs:
 
             New-Item -ItemType Directory -Path $destination -Force | Out-Null
             robocopy $source $destination /MIR /XD bin obj | Out-Host
-            if ($LASTEXITCODE -gt 7) {
-              throw "robocopy failed for $project with exit code $LASTEXITCODE"
+            $robocopyExitCode = $LASTEXITCODE
+            if ($robocopyExitCode -gt 7) {
+              throw "robocopy failed for $project with exit code $robocopyExitCode"
             }
+
+            # Robocopy uses exit codes 1-7 for successful copy states. Reset the
+            # native exit code so PowerShell does not fail the completed step.
+            $global:LASTEXITCODE = 0
           }
 
           Remove-Item (Join-Path $env:GITHUB_WORKSPACE "community-source") -Recurse -Force
