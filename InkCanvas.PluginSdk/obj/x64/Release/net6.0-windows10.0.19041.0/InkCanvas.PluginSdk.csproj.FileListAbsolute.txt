@@ -1,0 +1,11 @@
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\bin\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.deps.json
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\bin\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.dll
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\bin\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.pdb
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.csproj.AssemblyReference.cache
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.GeneratedMSBuildEditorConfig.editorconfig
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.csproj.CoreCompileInputs.cache
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.sourcelink.json
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.dll
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\refint\InkCanvas.PluginSdk.dll
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.PluginSdk.pdb
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net6.0-windows10.0.19041.0\ref\InkCanvas.PluginSdk.dll
