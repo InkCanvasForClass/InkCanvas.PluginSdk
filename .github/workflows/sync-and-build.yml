@@ -1,0 +1,80 @@
+name: Sync and build SDK
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-community-net6
+  cancel-in-progress: false
+
+jobs:
+  sync-and-build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout SDK repository
+        uses: actions/checkout@v4
+
+      - name: Checkout community net6 branch
+        uses: actions/checkout@v4
+        with:
+          repository: InkCanvasForClass/community
+          ref: net6
+          path: community-source
+
+      - name: Synchronize projects
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = "Stop"
+          $projects = @("InkCanvas.Controls", "InkCanvas.PluginSdk")
+
+          foreach ($project in $projects) {
+            $source = Join-Path $env:GITHUB_WORKSPACE "community-source/$project"
+            $destination = Join-Path $env:GITHUB_WORKSPACE $project
+
+            if (-not (Test-Path $source)) {
+              throw "Source project was not found: $source"
+            }
+
+            New-Item -ItemType Directory -Path $destination -Force | Out-Null
+            robocopy $source $destination /MIR /XD bin obj | Out-Host
+            if ($LASTEXITCODE -gt 7) {
+              throw "robocopy failed for $project with exit code $LASTEXITCODE"
+            }
+          }
+
+          Remove-Item (Join-Path $env:GITHUB_WORKSPACE "community-source") -Recurse -Force
+
+      - name: Setup .NET 6 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 6.0.x
+
+      - name: Build projects
+        shell: pwsh
+        run: |
+          dotnet build "InkCanvas.Controls/InkCanvas.Controls.csproj" --configuration Release --property:Platform=x64
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+          dotnet build "InkCanvas.PluginSdk/InkCanvas.PluginSdk.csproj" --configuration Release --property:Platform=x64
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Commit synchronized files
+        shell: pwsh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add InkCanvas.Controls InkCanvas.PluginSdk
+
+          if (git diff --cached --quiet) {
+            Write-Host "No source changes to commit."
+            exit 0
+          }
+
+          git commit -m "chore: sync SDK projects from community net6"
+          git push
