@@ -53,6 +53,9 @@ jobs:
             $global:LASTEXITCODE = 0
           }
 
+          # 将社区仓库的 version.json 一并带入，使独立构建时 NBGV 能依据 version.json 计算版本号（而非回退到默认 1.0）。
+          Copy-Item (Join-Path $env:GITHUB_WORKSPACE "community-source/version.json") (Join-Path $env:GITHUB_WORKSPACE "version.json") -Force
+
           Remove-Item (Join-Path $env:GITHUB_WORKSPACE "community-source") -Recurse -Force
 
       - name: Setup .NET 6 SDK
