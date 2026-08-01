@@ -41,3 +41,5 @@ D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.Controls\obj\x64\Release\
 D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.Controls\obj\x64\Release\net6.0-windows10.0.19041.0\refint\InkCanvas.Controls.dll
 D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.Controls\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.Controls.pdb
 D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.Controls\obj\x64\Release\net6.0-windows10.0.19041.0\ref\InkCanvas.Controls.dll
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.Controls\bin\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.Controls.xml
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.Controls\obj\x64\Release\net6.0-windows10.0.19041.0\InkCanvas.Controls.xml
