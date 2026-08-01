@@ -438,6 +438,11 @@
             向工具栏注册插件组件。
             </summary>
         </member>
+        <member name="M:Ink_Canvas.Plugins.IPluginHost.RegisterBoardToolbarItem(Ink_Canvas.Plugins.PluginToolbarItemInfo)">
+            <summary>
+            向白板工具栏注册插件组件。行为与 <see cref="M:Ink_Canvas.Plugins.IPluginHost.RegisterToolbarItem(Ink_Canvas.Plugins.PluginToolbarItemInfo)"/> 相同，仅目标工具栏不同。
+            </summary>
+        </member>
         <member name="M:Ink_Canvas.Plugins.IPluginHost.RegisterIpcHandler(System.String,System.Func{System.Nullable{System.Text.Json.JsonElement},System.Object})">
             <summary>
             注册一个 IPC 方法，由插件调用。返回前请确保未注册相同 <paramref name="method"/>。
