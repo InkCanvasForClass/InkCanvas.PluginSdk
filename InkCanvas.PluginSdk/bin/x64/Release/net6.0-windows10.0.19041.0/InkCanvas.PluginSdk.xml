@@ -25,6 +25,146 @@
             随构建自动更新，不再手动维护。
             </summary>
         </member>
+        <member name="T:Ink_Canvas.Plugins.IAnnouncementService">
+            <summary>
+            公告服务：供插件读取宿主公告中心的未读数、历史与标记已读。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IAnnouncementService.GetUnreadCount">
+            <summary>未读公告数。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IAnnouncementService.GetHistory">
+            <summary>公告历史列表。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IAnnouncementService.MarkAsRead(System.String)">
+            <summary>把指定公告标记为已读。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IAnnouncementService.MarkAllAsRead">
+            <summary>全部标记为已读。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IAnnouncementService.ClearHistory">
+            <summary>清空公告历史。</summary>
+        </member>
+        <member name="E:Ink_Canvas.Plugins.IAnnouncementService.UnreadCountChanged">
+            <summary>未读数变化时触发。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginAnnouncement">
+            <summary>
+            公告条目（只读描述）。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.Id">
+            <summary>公告 ID。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.Title">
+            <summary>标题。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.Summary">
+            <summary>摘要。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.Content">
+            <summary>完整内容。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.CreatedAt">
+            <summary>发布时间。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.IsRead">
+            <summary>是否已读。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginAnnouncement.IsNew">
+            <summary>是否为新增（未读且未展示过）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IAppInfoService">
+            <summary>
+            应用信息服务：供插件读取宿主应用的基本信息。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IAppInfoService.Version">
+            <summary>宿主版本号，如 "1.7.18.0 (sha)"。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IAppInfoService.RootPath">
+            <summary>宿主安装目录路径（插件/设置/日志相对此路径）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IAppInfoService.IsUpdateInstalling">
+            <summary>是否正在安装新版本（更新流程中）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IAppInfoService.IsUIAccessTopMostEnabled">
+            <summary>是否已启用 UIAccess 置顶模式。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IAppInfoService.StartWithBoardMode">
+            <summary>本次启动是否带 --board 参数（直接进入白板模式）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IBackupService">
+            <summary>
+            自动备份服务：供插件控制宿主的设置文件自动备份（复制 Settings.json 到备份目录）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IBackupService.ShouldPerformAutoBackup">
+            <summary>是否已到达自动备份时机（由宿主备份间隔设置决定）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IBackupService.PerformAutoBackup">
+            <summary>执行一次备份。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IBackupService.TryRestoreFromBackup">
+            <summary>从最近一次备份恢复设置文件。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IBackupService.CleanupOldBackups">
+            <summary>清理过期备份。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.ICameraService">
+            <summary>
+            摄像头服务：供插件枚举摄像头、启动预览、接收帧回调与拍照。
+            <para>底层复用宿主视频展台的 DirectShow 采集（<c>CameraServiceFactory.Create()</c>），
+            与展台共用摄像头设备——插件启动预览可能抢占展台正在使用的设备。</para>
+            <para>帧回调在后台线程触发，返回的 <see cref="T:System.Windows.Media.Imaging.BitmapSource"/> 已 Freeze。</para>
+            </summary>
+        </member>
+        <member name="E:Ink_Canvas.Plugins.ICameraService.FrameReceived">
+            <summary>每收到一帧时触发（参数为已 Freeze 的位图）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ICameraService.IsCapturing">
+            <summary>当前是否正在预览。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ICameraService.AvailableCameras">
+            <summary>可用摄像头列表。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ICameraService.RotationAngle">
+            <summary>旋转角度（0=0°, 1=90°, 2=180°, 3=270°）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ICameraService.NativeResolutions">
+            <summary>当前摄像头支持的 native 分辨率列表。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ICameraService.SelectedResolutionIndex">
+            <summary>当前选中的 native 分辨率索引（<see cref="P:Ink_Canvas.Plugins.ICameraService.NativeResolutions"/> 的索引）；-1 未选中。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICameraService.RefreshCameraListAsync">
+            <summary>刷新可用摄像头列表。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICameraService.StartPreviewAsync(System.Int32)">
+            <summary>启动指定摄像头（索引来自 <see cref="P:Ink_Canvas.Plugins.ICameraService.AvailableCameras"/>）的预览。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICameraService.StopPreview">
+            <summary>停止预览。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICameraService.GetCurrentFrame">
+            <summary>获取当前帧位图（已 Freeze），用于拍照。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginCameraInfo">
+            <summary>
+            摄像头信息。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginCameraInfo.Name">
+            <summary>摄像头名称。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginCameraInfo.MonikerString">
+            <summary>设备 Moniker 标识（用于 <see cref="M:Ink_Canvas.Plugins.ICameraService.StartPreviewAsync(System.Int32)"/>）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginResolutionInfo">
+            <summary>
+            摄像头分辨率（宽×高×帧率）。
+            </summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.ICanvasCompositionService">
             <summary>
             画布合成服务：允许插件向宿主画布下方注入全屏背景层，并把「背景 + 墨迹」按页导出。
@@ -279,6 +419,82 @@
         <member name="M:Ink_Canvas.Plugins.ICanvasInkService.ToggleInkFreeze">
             <summary>切换当前页的墨迹冻结状态。</summary>
         </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasInkService.ExportCurrentPageAsPng(System.String)">
+            <summary>
+            把当前画布页（墨迹 + 背景色）导出为 PNG 文件。
+            </summary>
+            <param name="filePath">输出 PNG 路径（目录需已存在）。</param>
+            <returns>是否导出成功。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasInkService.ExportStrokesAsPng(System.Windows.Ink.StrokeCollection,System.String)">
+            <summary>
+            把指定墨迹集合渲染为 PNG 文件。
+            </summary>
+            <param name="strokes">要导出的墨迹。</param>
+            <param name="filePath">输出 PNG 路径（目录需已存在）。</param>
+            <returns>是否导出成功。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasInkService.InsertBitmap(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            把图片插入当前画布（居中缩放、进入撤销历史、切换到选择模式）。
+            </summary>
+            <param name="bitmapSource">要插入的图片。</param>
+            <returns>是否已触发插入流程。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasInkService.PasteClipboardImageAsync(System.Nullable{System.Windows.Point})">
+            <summary>
+            把剪贴板图片粘贴到画布（可选指定坐标）。
+            </summary>
+            <param name="position">插入位置（画布坐标）；null 表示居中。</param>
+            <returns>是否已触发粘贴流程。</returns>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IClipboardService">
+            <summary>
+            剪贴板服务：允许插件读取/写入系统剪贴板文本与图像，并订阅剪贴板变化事件。
+            <para>宿主已挂接系统剪贴板监听（AddClipboardFormatListener），
+            <see cref="E:Ink_Canvas.Plugins.IClipboardService.ClipboardUpdate"/> 在剪贴板文本/图像变化时触发。</para>
+            <para>所有方法都应在 UI 线程调用（WPF Clipboard 依赖 STA 线程）。</para>
+            </summary>
+        </member>
+        <member name="E:Ink_Canvas.Plugins.IClipboardService.ClipboardUpdate">
+            <summary>系统剪贴板内容（文本/图像）变化时触发。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IClipboardService.GetText">
+            <summary>读取剪贴板文本；剪贴板不含文本时返回空字符串。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IClipboardService.SetText(System.String)">
+            <summary>写入文本到剪贴板。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IClipboardService.GetImage">
+            <summary>读取剪贴板图像；剪贴板不含图像时返回 null。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IClipboardService.SetImage(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>把图像写入剪贴板。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IClipboardService.ContainsImage">
+            <summary>剪贴板当前是否包含图像。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IConfigProfileService">
+            <summary>
+            配置方案服务：供插件管理宿主的「配置方案」（一套 Settings.json 的快照）。
+            与设置窗口里的配置方案管理共用同一存储目录。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IConfigProfileService.ListProfiles">
+            <summary>列出所有已保存的方案名。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IConfigProfileService.GetProfilePath(System.String)">
+            <summary>获取指定方案的存储文件路径。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IConfigProfileService.SaveAsProfile(System.String,System.String)">
+            <summary>把 settingsJson 内容保存为指定名称的方案。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IConfigProfileService.ApplyProfile(System.String)">
+            <summary>应用指定方案（覆盖当前 Settings.json 并热重载）。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IConfigProfileService.DeleteProfile(System.String)">
+            <summary>删除指定方案。返回是否成功。</summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.IEventService">
             <summary>
             事件服务，供插件订阅主程序事件。
@@ -343,6 +559,34 @@
             检查文件关联是否已注册。
             </summary>
         </member>
+        <member name="T:Ink_Canvas.Plugins.IFileDialogService">
+            <summary>
+            文件对话框服务：供插件弹出标准的 Windows 打开/保存文件对话框。
+            <para>宿主内部切到 UI 线程展示对话框，以宿主主窗口为所有者。</para>
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IFileDialogService.OpenFile(System.String,System.String,System.String)">
+            <summary>
+            弹出「打开文件」对话框。
+            </summary>
+            <param name="title">对话框标题。</param>
+            <param name="filter">文件过滤器，如 "文本文件 (*.txt)|*.txt|所有文件 (*.*)|*.*"；null 用默认。</param>
+            <param name="initialDirectory">初始目录；null 用上次目录。</param>
+            <returns>选中的文件路径；用户取消返回 null。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IFileDialogService.OpenFiles(System.String,System.String,System.String)">
+            <summary>
+            弹出「打开文件」对话框，允许多选。
+            </summary>
+            <returns>选中的文件路径列表；用户取消返回空数组。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IFileDialogService.SaveFile(System.String,System.String,System.String,System.String)">
+            <summary>
+            弹出「另存为」对话框。
+            </summary>
+            <param name="defaultFileName">默认文件名。</param>
+            <returns>选中的保存路径；用户取消返回 null。</returns>
+        </member>
         <member name="T:Ink_Canvas.Plugins.IHotkeyService">
             <summary>
             快捷键服务，供插件注册自定义全局热键。
@@ -368,6 +612,128 @@
             检查热键是否已注册。
             </summary>
         </member>
+        <member name="M:Ink_Canvas.Plugins.IHotkeyService.GetRegisteredHotkeys">
+            <summary>
+            获取宿主当前已注册的全部热键（含内置热键）的只读描述。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IHotkeyService.UpdateHotkey(System.String,System.Windows.Input.Key,System.Windows.Input.ModifierKeys)">
+            <summary>
+            更新宿主内置热键的按键组合（按热键名称，如 "Undo"、"Redo"）。
+            </summary>
+            <returns>是否更新成功。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IHotkeyService.EnableRegistration">
+            <summary>启用宿主热键注册（恢复响应）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IHotkeyService.DisableRegistration">
+            <summary>停用宿主热键注册（所有热键暂停响应）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginHotkeyInfo">
+            <summary>
+            热键信息（只读描述，不含回调）。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginHotkeyInfo.Name">
+            <summary>热键名称（如 "Undo"）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginHotkeyInfo.Key">
+            <summary>主键。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginHotkeyInfo.Modifiers">
+            <summary>修饰键组合。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IInkEffectService">
+            <summary>
+            墨迹特效服务：供插件控制宿主画布的墨迹渐变消隐动画（InkFade）。
+            <para>宿主画布上的墨迹按时间渐隐消失，用于演示/答题场景的自动擦除效果。</para>
+            <para>底层复用宿主 <c>InkFadeManager</c>；画布未初始化时调用方法可能无效，
+            但不会抛出异常。</para>
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IInkEffectService.IsEnabled">
+            <summary>墨迹渐隐是否启用。写入即生效。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IInkEffectService.FadeTime">
+            <summary>渐隐时长（毫秒）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IInkEffectService.FadeSpeedMultiplier">
+            <summary>渐隐速度倍率。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.AddFadingStroke(System.Windows.Ink.Stroke,System.Windows.Point,System.Windows.Point,System.Int64)">
+            <summary>
+            把一条墨迹加入渐隐队列（从 <paramref name="startPoint"/> 画到 <paramref name="endPoint"/>，
+            持续 <paramref name="strokeDurationMs"/> 毫秒后渐隐消失）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.RemoveStroke(System.Windows.Ink.Stroke)">
+            <summary>从渐隐队列移除指定墨迹（立即停止其渐隐动画）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.ClearAllFadingStrokes">
+            <summary>清空全部渐隐墨迹。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.UpdateFadeTime(System.Int32)">
+            <summary>更新渐隐时长（毫秒）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.UpdateFadeSpeedMultiplier(System.Double)">
+            <summary>更新渐隐速度倍率。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.Enable">
+            <summary>启用墨迹渐隐。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IInkEffectService.Disable">
+            <summary>停用墨迹渐隐。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.INameRosterService">
+            <summary>
+            点名花名册服务：供插件管理宿主「随机点名」功能的学生花名册。
+            与宿主设置里的花名册管理共用同一存储（Names.txt / Replace.txt / 方案目录）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.GetSelectedRoster">
+            <summary>当前选中的花名册（含名单内容与替换规则）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.ReadCurrentFiles">
+            <summary>读取当前生效的 Names.txt / Replace.txt 原始内容。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.WriteCurrentFiles(System.String,System.String)">
+            <summary>写入当前生效的 Names.txt / Replace.txt。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.ApplyRoster(Ink_Canvas.Plugins.PluginNameRoster)">
+            <summary>把给定花名册内容应用为当前生效名单。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.SelectAndApply(System.String)">
+            <summary>按 guid 选中并应用对应花名册。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.SaveCurrentFilesToRoster(System.String)">
+            <summary>把当前生效名单内容保存到指定 guid 的花名册。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.AddRoster(System.String)">
+            <summary>新建一个花名册，返回其 guid。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.RenameRoster(System.String,System.String)">
+            <summary>重命名指定花名册。返回是否成功。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INameRosterService.DeleteRoster(System.String)">
+            <summary>删除指定花名册。返回是否成功。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginNameRoster">
+            <summary>
+            花名册（与宿主 Settings.NameRoster 一致）。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNameRoster.Guid">
+            <summary>唯一标识。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNameRoster.Name">
+            <summary>方案名称。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNameRoster.NamesContent">
+            <summary>名单内容（每行一人）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNameRoster.ReplaceContent">
+            <summary>替换规则内容（每行一条）。</summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.INotificationService">
             <summary>
             通知服务，供插件发送应用内通知。
@@ -384,7 +750,52 @@
         <member name="M:Ink_Canvas.Plugins.INotificationService.Show(System.String,System.String,Ink_Canvas.Plugins.NotificationLevel,System.Action)">
             <summary>
             发送一条带点击回调的通知。
+            灵动通知会显示操作按钮，用户点击后触发 <paramref name="onClicked"/>。
             </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INotificationService.GetHistory(System.String)">
+            <summary>
+            读取通知历史（宿主通知中心保留最近 100 条）。
+            </summary>
+            <param name="source">按来源过滤；null 表示全部。</param>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INotificationService.ClearHistory(System.String)">
+            <summary>
+            清空通知历史（按来源过滤；null 清空全部）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.INotificationService.ShowWindowsToast(System.String,System.String)">
+            <summary>
+            发送一条 Windows 系统通知中心 toast（Win7 自动降级为托盘气球通知）。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.NotificationLevel">
+            <summary>
+            通知级别。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginNotification">
+            <summary>
+            通知历史条目（只读描述）。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNotification.Title">
+            <summary>通知标题。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNotification.Summary">
+            <summary>通知内容。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNotification.Source">
+            <summary>通知来源。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNotification.Icon">
+            <summary>通知图标名（如 "Info"/"Warning"）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNotification.Level">
+            <summary>通知级别字符串（"Low"/"Normal"/"High"/"Critical"）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginNotification.CreatedAt">
+            <summary>创建时间。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.IPluginCanvasGestureHandler">
             <summary>
@@ -506,6 +917,22 @@
             否则 Options 同时用作显示文本和保存值。
             </summary>
         </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarSettingInfo.MinValue">
+            <summary>
+            Slider 类型的最小值。默认 0。仅对 <see cref="F:Ink_Canvas.Plugins.PluginToolbarSettingType.Slider"/> 生效。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarSettingInfo.MaxValue">
+            <summary>
+            Slider 类型的最大值。默认 100。仅对 <see cref="F:Ink_Canvas.Plugins.PluginToolbarSettingType.Slider"/> 生效。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarSettingInfo.StepSize">
+            <summary>
+            Slider 类型的步长。设置后滑块吸附到该步长（含鼠标拖动/键盘/点击）。默认 1。
+            仅对 <see cref="F:Ink_Canvas.Plugins.PluginToolbarSettingType.Slider"/> 生效。
+            </summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.IpcMessage">
             <summary>
             IPC 消息结构（JSON 透明传输）。宿主与插件共用。
@@ -520,6 +947,55 @@
             <summary>
             评估结果，用于安装前的安全提示。
             </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IPluginUriService">
+            <summary>
+            URI 服务：供插件注册深链接处理程序，或主动打开 <c>icc://</c> 深链接。
+            <para>
+            注册后，宿主会把形如 <c>icc://plugin/&lt;pluginId&gt;/&lt;path&gt;?&lt;query&gt;</c> 的深链接
+            派发给对应插件注册的处理器。子路径按「/」分段做最长前缀匹配（忽略大小写），
+            注册空字符串 <c>""</c> 表示接收该插件全部子路径。
+            </para>
+            <para>
+            处理器与 <see cref="M:Ink_Canvas.Plugins.IPluginUriService.OpenUri(System.String)"/> 均在 UI 线程执行，可安全操作画布/窗口等宿主对象。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IPluginUriService.RegisterHandler(System.String,System.Func{Ink_Canvas.Plugins.PluginUriRequest,System.Boolean})">
+            <summary>
+            注册 URI 处理程序。
+            <para>
+            注册后，<c>icc://plugin/&lt;本插件ID&gt;/&lt;subPath&gt;</c> 会调用 <paramref name="handler"/>。
+            应在插件 <c>Initialize</c> 阶段调用（与 <see cref="M:Ink_Canvas.Plugins.IPluginHost.RegisterService``1(``0)"/> 约束一致）。
+            </para>
+            </summary>
+            <param name="subPath">子路径（去 <c>plugin/&lt;id&gt;/</c> 前缀），空字符串表示接收全部子路径。</param>
+            <param name="handler">处理器；返回 <c>true</c> 表示已处理，返回 <c>false</c> 时宿主记录「未处理」日志。</param>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IPluginUriService.OpenUri(System.String)">
+            <summary>
+            主动打开一个 <c>icc://</c> 深链接（应用命令或其它插件的 URI）。
+            <para>受宿主设置「启用 URI 协议」控制：设置关闭时调用不生效。</para>
+            </summary>
+            <param name="uri">形如 <c>icc://settings/CanvasPage?key=xxx</c> 或 <c>icc://plugin/&lt;id&gt;/&lt;path&gt;</c>。</param>
+            <returns>是否已受理（已进入路由，不代表命令一定成功）。</returns>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginUriRequest">
+            <summary>
+            插件 URI 请求。宿主解析 <c>icc://plugin/&lt;pluginId&gt;/&lt;path&gt;</c> 后构造，传递给注册的处理器。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUriRequest.PluginId">
+            <summary>目标插件 ID（来自 URI，忽略大小写匹配）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUriRequest.Path">
+            <summary>插件子路径（去除 <c>/plugin/&lt;id&gt;/</c> 前缀，小写）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUriRequest.Query">
+            <summary>查询参数（键忽略大小写，值已 URL 解码）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUriRequest.RawUri">
+            <summary>原始 URI 字符串。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.IPowerPointService">
             <summary>
@@ -544,6 +1020,16 @@
         <member name="P:Ink_Canvas.Plugins.IPowerPointService.CurrentFileName">
             <summary>
             当前 PPT 文件名（不含路径），未打开时返回 null。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IPowerPointService.IsConnected">
+            <summary>
+            是否已连接到 PowerPoint/WPS。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IPowerPointService.GetPresentationPath">
+            <summary>
+            当前演示文件的完整路径；未打开时返回 null。
             </summary>
         </member>
         <member name="M:Ink_Canvas.Plugins.IPowerPointService.GoToSlide(System.Int32)">
@@ -571,6 +1057,19 @@
             结束放映。
             </summary>
         </member>
+        <member name="M:Ink_Canvas.Plugins.IPowerPointService.ExportSlideThumbnails(System.Int32,System.Int32)">
+            <summary>
+            导出全部幻灯片缩略图（PNG）。
+            </summary>
+            <param name="width">缩略图宽度。</param>
+            <param name="height">缩略图高度。</param>
+            <returns>缩略图列表；未连接时返回空列表。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IPowerPointService.TryShowSlideNavigation">
+            <summary>
+            尝试打开 PPT 翻页导航界面。返回是否成功打开。
+            </summary>
+        </member>
         <member name="E:Ink_Canvas.Plugins.IPowerPointService.SlideChanged">
             <summary>
             翻页事件（页码）。
@@ -585,6 +1084,17 @@
             <summary>
             放映结束事件。
             </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginSlideThumbnail">
+            <summary>
+            单张幻灯片的缩略图（PNG 字节）。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginSlideThumbnail.SlideNumber">
+            <summary>幻灯片页码（从 1 开始）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginSlideThumbnail.PngBytes">
+            <summary>缩略图 PNG 字节。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.IPresentationSourceService">
             <summary>
@@ -689,6 +1199,42 @@
             是否允许点击页码按钮跳页。外部演示源通常没有缩略图与跳页对话框，
             置为 <c>false</c> 时宿主会禁用页码点击与增强预览。
             </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IQuoteService">
+            <summary>
+            名言（鸡汤/一言）服务：供插件读取宿主内置的名言预设、触发白板水印名言刷新。
+            <para>预设来源：osu 玩家语录、励志名言、高考祝福、Phigros Tips、一言（Hitokoto API）。</para>
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IQuoteService.GetPresetSchemes">
+            <summary>列出宿主内置的名言预设方案。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IQuoteService.GetTipsFromPreset(System.String)">
+            <summary>
+            获取指定预设的全部语录数组。
+            </summary>
+            <param name="presetId">预设 ID（如 "osu"、"mottos"、"gaokao"、"phigros"）。</param>
+            <returns>语录数组；hitokoto 或未知 ID 返回 null。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IQuoteService.RefreshAsync">
+            <summary>触发宿主立即刷新白板水印名言（随机选取一条，异步）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginQuoteScheme">
+            <summary>
+            名言预设方案描述。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginQuoteScheme.PresetId">
+            <summary>预设 ID，供 <see cref="M:Ink_Canvas.Plugins.IQuoteService.GetTipsFromPreset(System.String)"/> 使用。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginQuoteScheme.Name">
+            <summary>预设显示名称。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginQuoteScheme.IsPreset">
+            <summary>是否为内置预设（false 为自定义方案）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginQuoteScheme.IsEnabled">
+            <summary>当前是否启用。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.PluginRecognitionEngine">
             <summary>
@@ -796,6 +1342,66 @@
         <member name="M:Ink_Canvas.Plugins.IRecognitionService.GetSystemInfo">
             <summary>当前识别引擎的系统信息（用于诊断/展示）。</summary>
         </member>
+        <member name="T:Ink_Canvas.Plugins.IScreenInfoService">
+            <summary>
+            屏幕信息服务：供插件读取系统显示器信息。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IScreenInfoService.GetAllScreens">
+            <summary>所有显示器的列表。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IScreenInfoService.GetPrimaryScreen">
+            <summary>主显示器。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IScreenInfoService.HasMultipleScreens">
+            <summary>是否存在多显示器。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginScreenInfo">
+            <summary>
+            显示器信息（只读）。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginScreenInfo.Bounds">
+            <summary>显示器完整边界（设备无关像素，相对虚拟屏幕原点）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginScreenInfo.WorkingArea">
+            <summary>显示器工作区（扣除任务栏等，设备无关像素）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginScreenInfo.DeviceName">
+            <summary>显示器设备名（如 "\\.\DISPLAY1"）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginScreenInfo.IsPrimary">
+            <summary>是否为主显示器。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IScreenshotService">
+            <summary>
+            截图服务：允许插件捕获全屏或指定区域的屏幕内容，返回位图或保存为文件。
+            <para>所有方法都应在 UI 线程调用（宿主内部不做线程切换）。</para>
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IScreenshotService.CaptureFullScreen">
+            <summary>
+            捕获整个虚拟屏幕（所有显示器）为位图。
+            </summary>
+            <returns>已 Freeze 的 <see cref="T:System.Windows.Media.Imaging.BitmapSource"/>，可直接用于 WPF 绑定/绘制。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IScreenshotService.CaptureScreenArea(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            捕获屏幕指定区域为位图。
+            </summary>
+            <param name="x">区域左上角 X（屏幕坐标）。</param>
+            <param name="y">区域左上角 Y（屏幕坐标）。</param>
+            <param name="width">区域宽度。</param>
+            <param name="height">区域高度。</param>
+            <returns>已 Freeze 的 <see cref="T:System.Windows.Media.Imaging.BitmapSource"/>。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IScreenshotService.SaveFullScreenToFile(System.String)">
+            <summary>
+            捕获整个虚拟屏幕并保存为 PNG 文件。
+            </summary>
+            <param name="filePath">输出 PNG 路径（目录需已存在）。</param>
+            <returns>是否保存成功。</returns>
+        </member>
         <member name="T:Ink_Canvas.Plugins.ISettingsService">
             <summary>
             设置服务，供插件读写主程序设置。
@@ -824,6 +1430,62 @@
             <summary>
             设置变更时触发。
             </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.ISystemInfoService">
+            <summary>
+            系统信息服务：供插件读取宿主设备与系统信息。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ISystemInfoService.DeviceId">
+            <summary>设备唯一 ID（用于诊断/上报）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.ISystemInfoService.SystemVersion">
+            <summary>Windows 系统版本描述。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ISystemInfoService.GetUsageStats">
+            <summary>宿主使用统计（启动次数、累计时长等）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginUsageStats">
+            <summary>
+            宿主使用统计。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUsageStats.LaunchCount">
+            <summary>累计启动次数。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUsageStats.TotalSeconds">
+            <summary>累计使用时长（秒）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUsageStats.AvgSessionSeconds">
+            <summary>平均单次会话时长（秒）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUsageStats.UpdatePriority">
+            <summary>更新优先级（int 形式的宿主枚举）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginTheme">
+            <summary>
+            主题枚举。
+            </summary>
+        </member>
+        <member name="F:Ink_Canvas.Plugins.PluginTheme.Light">
+            <summary>浅色。</summary>
+        </member>
+        <member name="F:Ink_Canvas.Plugins.PluginTheme.Dark">
+            <summary>深色。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IThemeService">
+            <summary>
+            主题服务：供插件检测系统/宿主当前主题，并把主题应用到自己的控件。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IThemeService.IsSystemThemeLight">
+            <summary>系统当前是否为浅色主题（注册表 AppsUseLightTheme）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IThemeService.GetEffectiveTheme">
+            <summary>宿主当前生效的主题（按宿主设置：浅色/深色/跟随系统）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IThemeService.ApplyThemeToElement(System.Windows.FrameworkElement)">
+            <summary>把宿主当前主题应用到指定元素（调用方需持有该元素在可视树中的引用）。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.ITrayService">
             <summary>
@@ -872,6 +1534,65 @@
         </member>
         <member name="E:Ink_Canvas.Plugins.ITrayService.RightClicked">
             <summary>托盘图标右键按下时触发（宿主按用户设置的右键行为执行默认动作后触发）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginUpdateChannel">
+            <summary>
+            更新通道。
+            </summary>
+        </member>
+        <member name="F:Ink_Canvas.Plugins.PluginUpdateChannel.Release">
+            <summary>稳定版。</summary>
+        </member>
+        <member name="F:Ink_Canvas.Plugins.PluginUpdateChannel.Preview">
+            <summary>预览版。</summary>
+        </member>
+        <member name="F:Ink_Canvas.Plugins.PluginUpdateChannel.Beta">
+            <summary>Beta 版。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.PluginUpdateCheckResult">
+            <summary>
+            更新检查结果。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUpdateCheckResult.RemoteVersion">
+            <summary>远程最新版本号。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUpdateCheckResult.ReleaseNotes">
+            <summary>发布说明（UpdateLog 文本）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginUpdateCheckResult.LineGroupName">
+            <summary>命中的更新线路组名（用于后续下载/安装）。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IUpdateService">
+            <summary>
+            更新服务：供插件检查宿主是否有新版本、读取更新日志、触发安装或取消下载。
+            <para>底层复用宿主 <c>AutoUpdateHelper</c>，与软件内置的检查更新共用同一套更新源与校验。</para>
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUpdateService.CheckForUpdatesAsync(Ink_Canvas.Plugins.PluginUpdateChannel)">
+            <summary>
+            检查指定通道是否有新版本。
+            </summary>
+            <param name="channel">更新通道。</param>
+            <returns>检查结果；无新版本时 <see cref="P:Ink_Canvas.Plugins.PluginUpdateCheckResult.RemoteVersion"/> 为空。</returns>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUpdateService.GetUpdateLogAsync(Ink_Canvas.Plugins.PluginUpdateChannel)">
+            <summary>
+            获取指定通道的更新日志（UpdateLog 全文）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUpdateService.InstallNewVersion(System.String,System.Boolean)">
+            <summary>
+            下载并安装指定版本（后台进行，宿主重启时应用更新）。
+            </summary>
+            <param name="version">要安装的版本号（来自 <see cref="M:Ink_Canvas.Plugins.IUpdateService.CheckForUpdatesAsync(Ink_Canvas.Plugins.PluginUpdateChannel)"/>）。</param>
+            <param name="isInSilence">是否静默安装（无确认提示）。</param>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUpdateService.RequestCancelDownload">
+            <summary>取消正在进行的下载。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IUpdateService.LastDownloadFailure">
+            <summary>最近一次下载失败的原因描述；无失败时为 null。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.PluginWindowInfo">
             <summary>
@@ -933,6 +1654,16 @@
         <member name="M:Ink_Canvas.Plugins.IWindowService.ExitWhiteboard">
             <summary>
             退出白板模式（回到浮动栏）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IWindowService.SetFullscreen(System.Boolean)">
+            <summary>
+            设置窗口全屏状态（进入/退出全屏）。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IWindowService.ToggleFullscreen">
+            <summary>
+            切换窗口全屏状态。
             </summary>
         </member>
         <member name="E:Ink_Canvas.Plugins.IWindowService.TopMostChanged">
