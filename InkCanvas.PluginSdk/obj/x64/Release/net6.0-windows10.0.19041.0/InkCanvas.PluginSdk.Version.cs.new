@@ -10,9 +10,9 @@
 
 #pragma warning disable CA2243
 
-[assembly: global::System.Reflection.AssemblyVersionAttribute("1.7.19.9")]
-[assembly: global::System.Reflection.AssemblyFileVersionAttribute("1.7.19.9")]
-[assembly: global::System.Reflection.AssemblyInformationalVersionAttribute("1.7.19+bc4d6691b4")]
+[assembly: global::System.Reflection.AssemblyVersionAttribute("1.8.0.0")]
+[assembly: global::System.Reflection.AssemblyFileVersionAttribute("1.8.0.0")]
+[assembly: global::System.Reflection.AssemblyInformationalVersionAttribute("1.8.0+004feae2be")]
 #if NETSTANDARD || NETFRAMEWORK || NETCOREAPP
 [global::System.CodeDom.Compiler.GeneratedCode("Nerdbank.GitVersioning.Tasks","3.9.50.28654")]
 #endif
@@ -21,14 +21,14 @@
 #endif
 internal static partial class ThisAssembly {
     internal const string AssemblyConfiguration = "Release";
-    internal const string AssemblyFileVersion = "1.7.19.9";
-    internal const string AssemblyInformationalVersion = "1.7.19+bc4d6691b4";
+    internal const string AssemblyFileVersion = "1.8.0.0";
+    internal const string AssemblyInformationalVersion = "1.8.0+004feae2be";
     internal const string AssemblyName = "InkCanvas.PluginSdk";
     internal const string AssemblyTitle = "InkCanvas.PluginSdk";
-    internal const string AssemblyVersion = "1.7.19.9";
-    internal static readonly global::System.DateTime GitCommitAuthorDate = new global::System.DateTime(639218988580000000L, global::System.DateTimeKind.Utc);
-    internal static readonly global::System.DateTime GitCommitDate = new global::System.DateTime(639218988580000000L, global::System.DateTimeKind.Utc);
-    internal const string GitCommitId = "bc4d6691b4589081ab391c313dc0827ca2318676";
+    internal const string AssemblyVersion = "1.8.0.0";
+    internal static readonly global::System.DateTime GitCommitAuthorDate = new global::System.DateTime(639219260850000000L, global::System.DateTimeKind.Utc);
+    internal static readonly global::System.DateTime GitCommitDate = new global::System.DateTime(639219260850000000L, global::System.DateTimeKind.Utc);
+    internal const string GitCommitId = "004feae2be92cfd4d05ceae0c2e23c471624ee18";
     internal const bool IsPrerelease = false;
     internal const bool IsPublicRelease = false;
     internal const string RootNamespace = "Ink_Canvas.Plugins";
