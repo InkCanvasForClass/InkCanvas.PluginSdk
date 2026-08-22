@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: sync-community-net6
+  group: sync-community-net10
   cancel-in-progress: false
 
 jobs:
@@ -20,11 +20,11 @@ jobs:
       - name: Checkout SDK repository
         uses: actions/checkout@v4
 
-      - name: Checkout community net6 branch
+      - name: Checkout community net10 branch
         uses: actions/checkout@v4
         with:
           repository: InkCanvasForClass/community
-          ref: net6
+          ref: net10
           path: community-source
 
       - name: Synchronize projects
@@ -58,10 +58,10 @@ jobs:
 
           Remove-Item (Join-Path $env:GITHUB_WORKSPACE "community-source") -Recurse -Force
 
-      - name: Setup .NET 6 SDK
+      - name: Setup .NET 10 SDK
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 10.0.x
 
       - name: Build projects
         shell: pwsh
@@ -84,5 +84,5 @@ jobs:
             exit 0
           }
 
-          git commit -m "chore: sync SDK projects from community net6"
+          git commit -m "chore: sync SDK projects from community net10"
           git push
