@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "e9/j3qvxKNw=",
+  "dgSpecHash": "7ZX7azdZn8s=",
   "success": true,
   "projectFilePath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk.csproj",
   "expectedPackageFiles": [
@@ -10,8 +10,7 @@
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.common\\8.0.0\\microsoft.sourcelink.common.8.0.0.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.github\\8.0.0\\microsoft.sourcelink.github.8.0.0.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\nerdbank.gitversioning\\3.9.50\\nerdbank.gitversioning.3.9.50.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.55\\microsoft.windows.sdk.net.ref.10.0.19041.55.nupkg.sha512"
+    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
   "logs": []
 }

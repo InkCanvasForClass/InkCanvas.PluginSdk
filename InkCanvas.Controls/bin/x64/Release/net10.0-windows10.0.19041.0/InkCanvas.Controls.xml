@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InkCanvas.Controls</name>
+    </assembly>
+    <members>
+        <member name="T:Ink_Canvas.Controls.BoardToolbarButton">
+            <summary>
+            BoardToolbarButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.BoardToolbarButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.ColorPickerButton">
+            <summary>
+            ColorPickerButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.ColorPickerButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.CopyButton">
+            <summary>
+            CopyButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.CopyButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.GeometryButton">
+            <summary>
+            GeometryButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.GeometryButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.LabeledSettingsCard">
+            <summary>
+            LabeledSettingsCard
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.LabeledSettingsCard.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.LabeledToggleSwitch">
+            <summary>
+            LabeledToggleSwitch
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.LabeledToggleSwitch.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.PenColorButton">
+            <summary>
+            PenColorButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.PenColorButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.PopupShellContent">
+            <summary>
+            PopupShellContent
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.PopupShellContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.PopupTabShellContent">
+            <summary>
+            PopupTabShellContent
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.PopupTabShellContent.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.PopupTabTitleBar">
+            <summary>
+            PopupTabTitleBar
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.PopupTabTitleBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.PopupTitleBar">
+            <summary>
+            PopupTitleBar
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.PopupTitleBar.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.QuickPanelButton">
+            <summary>
+            QuickPanelButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.QuickPanelButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.ToolbarImageButton">
+            <summary>
+            ToolbarImageButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.ToolbarImageButton.ApplyCompactMode(System.Boolean)">
+            <summary>
+            应用紧凑浮动栏模式：开启后隐藏常驻文字标签，并让图标在保持纵横比的前提下拉伸填满空出的区域。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.ToolbarImageButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Controls.ToolMenuButton">
+            <summary>
+            ToolMenuButton
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.ToolMenuButton.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

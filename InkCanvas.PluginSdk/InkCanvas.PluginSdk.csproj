@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="InkCanvas.PluginSdk.targets" Pack="True" PackagePath="build\net6.0-windows10.0.19041.0" />
+    <None Include="InkCanvas.PluginSdk.targets" Pack="True" PackagePath="build\net10.0-windows10.0.19041.0" />
     <!-- NuGet 包图标（128x128 PNG，复用仓库 icc.png）。 -->
     <None Include="icon.png" Pack="True" PackagePath="" />
     <!-- NuGet 包详情页显示的 README。 -->
