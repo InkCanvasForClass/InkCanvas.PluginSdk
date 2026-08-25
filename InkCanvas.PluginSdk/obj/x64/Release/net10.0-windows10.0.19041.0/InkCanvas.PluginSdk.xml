@@ -207,6 +207,16 @@
         <member name="P:Ink_Canvas.Plugins.PluginResolutionInfo.FrameRate">
             <summary>帧率（FPS）。</summary>
         </member>
+        <member name="T:Ink_Canvas.Plugins.ICanvasAppearanceService">
+            <summary>
+            Exposes presentation-neutral canvas appearance information to plugins.
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasAppearanceService.GetContrastingForegroundColor">
+            <summary>
+            Returns an ARGB hex color suitable for foreground content on the current canvas background.
+            </summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.ICanvasCompositionService">
             <summary>
             画布合成服务：允许插件向宿主画布下方注入全屏背景层，并把「背景 + 墨迹」按页导出。
@@ -535,6 +545,70 @@
             <param name="position">插入位置（画布坐标）；null 表示居中。</param>
             <returns>是否已触发粘贴流程。</returns>
         </member>
+        <member name="T:Ink_Canvas.Plugins.CanvasLayerPlacement">
+            <summary>
+            插件画布图层相对于普通墨迹层的位置。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.ICanvasLayerService">
+            <summary>
+            插件画布图层服务。图层 ID 在同一插件内必须唯一；插件卸载时宿主会统一清理。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasLayerService.RegisterLayer(System.String,System.String,Ink_Canvas.Plugins.CanvasLayerPlacement,System.Func{System.Windows.FrameworkElement},System.Boolean)">
+            <summary>
+            注册或替换插件图层。工厂始终在 UI 线程调用。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasLayerService.RemoveLayer(System.String,System.String)">
+            <summary>移除插件的指定图层。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasLayerService.RemoveLayers(System.String)">
+            <summary>移除插件注册的全部图层。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.CanvasLineFinalizedEventArgs">
+            <summary>
+            宿主完成全部笔迹后处理后发布的直线候选。候选令牌仅能成功消费一次。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.ICanvasLineConversionService">
+            <summary>
+            允许插件把宿主最终直线与自己的结构化状态作为一个撤销项进行原子转换。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasLineConversionService.TryConvertToPluginState(System.String,System.String,System.String,System.String)">
+            <summary>
+            消费候选直线并提交一个复合历史项。非白板、冻结页、过期或重复令牌返回 false。
+            调用前插件应已应用 afterState；返回 false 时插件负责恢复 beforeState。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.CanvasPointerEventArgs">
+            <summary>
+            与宿主内部输入类型解耦的画布指针事件。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.CanvasKeyEventArgs">
+            <summary>
+            与宿主内部键盘路由解耦的画布工具按键事件。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.ICanvasToolSession">
+            <summary>
+            插件工具的独占输入会话。释放后宿主恢复进入工具前的普通墨迹模式。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasToolService.TryActivateTool(System.String,System.String,Ink_Canvas.Plugins.ICanvasToolSession@)">
+            <summary>
+            尝试激活插件工具。同一时间只允许一个插件工具拥有画布输入。
+            冻结页面拒绝激活可修改画布的插件工具。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasToolService.DeactivateTools(System.String)">
+            <summary>结束插件当前拥有的工具会话；插件卸载时宿主会调用。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.CanvasViewportTransformEventArgs">
+            <summary>宿主对整张普通白板内容应用的增量视口变换。</summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.IClipboardService">
             <summary>
             剪贴板服务：允许插件读取/写入系统剪贴板文本与图像，并订阅剪贴板变化事件。
@@ -586,6 +660,9 @@
             <summary>
             事件服务，供插件订阅主程序事件。
             </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.IEventService.IsWhiteboardMode">
+            <summary>当前是否处于普通白板模式。</summary>
         </member>
         <member name="E:Ink_Canvas.Plugins.IEventService.WhiteboardModeChanged">
             <summary>白板模式切换时触发（true=进入白板，false=退出白板）</summary>
@@ -675,6 +752,12 @@
             </summary>
             <param name="defaultFileName">默认文件名。</param>
             <returns>选中的保存路径；用户取消返回 null。</returns>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IFocusInteractionService">
+            <summary>
+            让插件的临时交互界面在宿主无焦点模式下仍可接收输入。
+            同一插件重复设置为 active 不会重复计数；关闭或卸载时必须设置为 false。
+            </summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.IHotkeyService">
             <summary>
@@ -1079,13 +1162,16 @@
             收到任何消息时触发。
             </summary>
         </member>
-        <member name="T:Ink_Canvas.Plugins.PluginToolbarItemInfo">
+        <member name="T:Ink_Canvas.Plugins.PluginToolbarSurface">
             <summary>
             插件工具栏项信息，用于向主程序注册工具栏组件。
             </summary>
         </member>
         <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.Id">
             <summary>组件唯一标识（在目标工具栏内必须唯一，建议用反域名风格如 "com.example.tool"）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.Surface">
+            <summary>组件注册的目标工具栏（浮动/白板）。</summary>
         </member>
         <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.DisplayName">
             <summary>组件在工具栏上显示的名称。</summary>
@@ -1113,6 +1199,14 @@
             弹窗内容工厂。若提供此属性，点击按钮时将自动打开包含此内容的弹窗菜单。
             返回的 FrameworkElement 将作为 Popup 的 Child 显示。
             </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.BindPopupController">
+            <summary>
+            宿主创建弹窗后调用此绑定回调，并提供一个可供插件请求打开或关闭弹窗的函数。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.PopupStateChanged">
+            <summary>弹窗实际打开或关闭时由宿主通知插件。</summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.PluginToolbarSettingInfo">
             <summary>
@@ -1842,6 +1936,22 @@
         <member name="E:Ink_Canvas.Plugins.ITrayService.RightClicked">
             <summary>托盘图标右键按下时触发（宿主按用户设置的右键行为执行默认动作后触发）。</summary>
         </member>
+        <member name="T:Ink_Canvas.Plugins.IUndoService">
+            <summary>
+            将插件的结构化状态快照接入宿主统一撤销/重做链路。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUndoService.RegisterStateHandler(System.String,System.Action{System.String})">
+            <summary>注册插件状态恢复处理器。每个插件只能注册一个处理器。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUndoService.UnregisterStateHandler(System.String)">
+            <summary>移除插件状态恢复处理器。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IUndoService.CommitState(System.String,System.String,System.String)">
+            <summary>
+            提交一次结构化状态变化。冻结页面会拒绝提交；相同快照不会生成历史项。
+            </summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.PluginUpdateChannel">
             <summary>
             更新通道。
@@ -1900,6 +2010,31 @@
         </member>
         <member name="P:Ink_Canvas.Plugins.IUpdateService.LastDownloadFailure">
             <summary>最近一次下载失败的原因描述；无失败时为 null。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IWhiteboardInitialHistoryProvider">
+            <summary>
+            可选契约：文档载入已有插件状态时，为宿主时间机器提供空白基线。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IWhiteboardCompanionStateProvider">
+            <summary>
+            可选契约：把某页已捕获的插件状态导出为与宿主文档并列的兼容文件。
+            扩展名必须是无目录部分的复合扩展名，例如 ".feature.json"。
+            </summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IWhiteboardLegacyStateImporter">
+            <summary>
+            Optional importer for page state written by a feature before it became a plugin.
+            Returning null means that no compatible legacy state exists at the supplied location.
+            </summary>
+        </member>
+        <member name="E:Ink_Canvas.Plugins.IWhiteboardDocumentService.PageClearing">
+            <summary>用户确认清空当前白板页时触发；代码驱动的切页和加载清理不触发。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IWhiteboardDocumentService.TryBeginMutation(System.String)">
+            <summary>
+            请求修改当前普通白板页。非白板或冻结页返回 false；冻结页提示由宿主统一处理。
+            </summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.PluginWindowInfo">
             <summary>
