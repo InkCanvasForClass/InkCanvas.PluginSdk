@@ -129,6 +129,19 @@
             ToolbarImageButton
             </summary>
         </member>
+        <member name="M:Ink_Canvas.Controls.ToolbarImageButton.SetIconInnerOutline(System.Windows.Media.Brush,System.Double)">
+            <summary>
+            为图标添加向内描边：描边完全位于图标轮廓内部，不会改变图标的视觉大小。
+            实现方式为以 2 倍线宽居中描边，并将整层裁剪到图标轮廓内，外半圈被裁掉，只保留向内的半圈。
+            </summary>
+            <param name="outlineBrush">描边颜色</param>
+            <param name="width">描边可见宽度（图标 24x24 坐标系单位）</param>
+        </member>
+        <member name="M:Ink_Canvas.Controls.ToolbarImageButton.ClearIconInnerOutline">
+            <summary>
+            移除图标描边。
+            </summary>
+        </member>
         <member name="M:Ink_Canvas.Controls.ToolbarImageButton.ApplyCompactMode(System.Boolean)">
             <summary>
             应用紧凑浮动栏模式：开启后隐藏常驻文字标签，并让图标在保持纵横比的前提下拉伸填满空出的区域。
