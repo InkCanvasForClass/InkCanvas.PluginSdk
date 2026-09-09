@@ -666,5 +666,17 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Build.Tasks.Git' 8.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-23fw-v26w-5fgq",
+      "libraryId": "Microsoft.Build.Tasks.Git",
+      "targetGraphs": [
+        "net10.0-windows10.0.19041.0"
+      ]
+    }
+  ]
 }

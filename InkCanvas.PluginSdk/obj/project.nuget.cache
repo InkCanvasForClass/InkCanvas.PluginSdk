@@ -12,5 +12,18 @@
     "C:\\Users\\runneradmin\\.nuget\\packages\\nerdbank.gitversioning\\3.9.50\\nerdbank.gitversioning.3.9.50.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Microsoft.Build.Tasks.Git' 8.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-23fw-v26w-5fgq",
+      "projectPath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk.csproj",
+      "libraryId": "Microsoft.Build.Tasks.Git",
+      "targetGraphs": [
+        "net10.0-windows10.0.19041.0"
+      ]
+    }
+  ]
 }
