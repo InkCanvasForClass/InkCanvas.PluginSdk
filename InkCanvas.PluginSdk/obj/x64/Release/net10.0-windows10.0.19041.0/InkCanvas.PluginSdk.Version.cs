@@ -12,7 +12,7 @@
 
 [assembly: global::System.Reflection.AssemblyVersionAttribute("1.8.0.6")]
 [assembly: global::System.Reflection.AssemblyFileVersionAttribute("1.8.0.6")]
-[assembly: global::System.Reflection.AssemblyInformationalVersionAttribute("1.8.0+1c4d13d6a2")]
+[assembly: global::System.Reflection.AssemblyInformationalVersionAttribute("1.8.0+b3380be333")]
 #if NETSTANDARD || NETFRAMEWORK || NETCOREAPP
 [global::System.CodeDom.Compiler.GeneratedCode("Nerdbank.GitVersioning.Tasks","3.9.50.28654")]
 #endif
@@ -22,13 +22,13 @@
 internal static partial class ThisAssembly {
     internal const string AssemblyConfiguration = "Release";
     internal const string AssemblyFileVersion = "1.8.0.6";
-    internal const string AssemblyInformationalVersion = "1.8.0+1c4d13d6a2";
+    internal const string AssemblyInformationalVersion = "1.8.0+b3380be333";
     internal const string AssemblyName = "InkCanvas.PluginSdk";
     internal const string AssemblyTitle = "InkCanvas.PluginSdk";
     internal const string AssemblyVersion = "1.8.0.6";
-    internal static readonly global::System.DateTime GitCommitAuthorDate = new global::System.DateTime(639252769440000000L, global::System.DateTimeKind.Utc);
-    internal static readonly global::System.DateTime GitCommitDate = new global::System.DateTime(639252769440000000L, global::System.DateTimeKind.Utc);
-    internal const string GitCommitId = "1c4d13d6a2ca71d5b20bf9a2d1bafd398038ec19";
+    internal static readonly global::System.DateTime GitCommitAuthorDate = new global::System.DateTime(639253034080000000L, global::System.DateTimeKind.Utc);
+    internal static readonly global::System.DateTime GitCommitDate = new global::System.DateTime(639253034080000000L, global::System.DateTimeKind.Utc);
+    internal const string GitCommitId = "b3380be333240f68f2a118b2c61929396fc7fb25";
     internal const bool IsPrerelease = false;
     internal const bool IsPublicRelease = false;
     internal const string RootNamespace = "Ink_Canvas.Plugins";
