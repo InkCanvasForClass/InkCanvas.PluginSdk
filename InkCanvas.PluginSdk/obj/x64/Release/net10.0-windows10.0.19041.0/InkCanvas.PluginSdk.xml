@@ -2028,8 +2028,20 @@
         <member name="P:Ink_Canvas.Plugins.IVideoBoothService.IsActive">
             <summary>当前是否处于视频展台特殊模式（全屏预览激活）。</summary>
         </member>
+        <member name="P:Ink_Canvas.Plugins.IVideoBoothService.IsPhotoPreviewActive">
+            <summary>
+            当前是否处于照片预览页（展台特殊模式下正在查看某张已拍照片，
+            而非摄像头直播画面）。拍照按钮在照片预览页会被宿主置灰，
+            硬件拍照键可据此给出「返回摄像头画面」的引导提示。
+            </summary>
+        </member>
         <member name="P:Ink_Canvas.Plugins.IVideoBoothService.ZoomScale">
             <summary>当前预览缩放倍率（未激活时恒为 1.0）。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IVideoBoothService.SwitchToLiveView">
+            <summary>
+            从照片预览页返回直播（摄像头）画面。未处于照片预览页时为空操作。
+            </summary>
         </member>
         <member name="M:Ink_Canvas.Plugins.IVideoBoothService.Toggle">
             <summary>
