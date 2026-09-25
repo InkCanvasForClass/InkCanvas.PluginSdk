@@ -43,33 +43,37 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
-      "Microsoft.Build.Tasks.Git/8.0.0": {
+      "Microsoft.Build.Tasks.Git/10.0.303": {
         "type": "package",
+        "dependencies": {
+          "System.IO.Hashing": "10.0.11"
+        },
         "build": {
-          "build/Microsoft.Build.Tasks.Git.props": {},
-          "build/Microsoft.Build.Tasks.Git.targets": {}
+          "buildTransitive/Microsoft.Build.Tasks.Git.props": {},
+          "buildTransitive/Microsoft.Build.Tasks.Git.targets": {}
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.props": {},
           "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets": {}
         }
       },
-      "Microsoft.SourceLink.Common/8.0.0": {
+      "Microsoft.SourceLink.Common/10.0.303": {
         "type": "package",
         "build": {
-          "build/Microsoft.SourceLink.Common.props": {},
-          "build/Microsoft.SourceLink.Common.targets": {}
+          "buildTransitive/Microsoft.SourceLink.Common.props": {},
+          "buildTransitive/Microsoft.SourceLink.Common.targets": {}
         },
         "buildMultiTargeting": {
           "buildMultiTargeting/Microsoft.SourceLink.Common.props": {},
           "buildMultiTargeting/Microsoft.SourceLink.Common.targets": {}
         }
       },
-      "Microsoft.SourceLink.GitHub/8.0.0": {
+      "Microsoft.SourceLink.GitHub/10.0.303": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Build.Tasks.Git": "8.0.0",
-          "Microsoft.SourceLink.Common": "8.0.0"
+          "Microsoft.Build.Tasks.Git": "10.0.303",
+          "Microsoft.SourceLink.Common": "10.0.303",
+          "System.IO.Hashing": "10.0.11"
         },
         "build": {
           "build/Microsoft.SourceLink.GitHub.props": {},
@@ -78,6 +82,22 @@
         "buildMultiTargeting": {
           "buildMultiTargeting/Microsoft.SourceLink.GitHub.props": {},
           "buildMultiTargeting/Microsoft.SourceLink.GitHub.targets": {}
+        }
+      },
+      "System.IO.Hashing/10.0.11": {
+        "type": "package",
+        "compile": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/_._": {}
         }
       }
     }
@@ -133,147 +153,206 @@
         "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.xml"
       ]
     },
-    "Microsoft.Build.Tasks.Git/8.0.0": {
-      "sha512": "bZKfSIKJRXLTuSzLudMFte/8CempWjVamNUR5eHJizsy+iuOuO/k2gnh7W0dHJmYY0tBf+gUErfluCv5mySAOQ==",
+    "Microsoft.Build.Tasks.Git/10.0.303": {
+      "sha512": "tUblJMHhGAg4WKq3fzfJqXpV8o01WmQnWvgopNBnbhVQB6qwW2c8guCTCFMILD9Dekhe8MROBJ4lEk8AtXKisQ==",
       "type": "package",
-      "path": "microsoft.build.tasks.git/8.0.0",
+      "path": "microsoft.build.tasks.git/10.0.303",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.txt",
         "build/Microsoft.Build.Tasks.Git.props",
         "build/Microsoft.Build.Tasks.Git.targets",
         "buildMultiTargeting/Microsoft.Build.Tasks.Git.props",
         "buildMultiTargeting/Microsoft.Build.Tasks.Git.targets",
-        "microsoft.build.tasks.git.8.0.0.nupkg.sha512",
+        "buildTransitive/Microsoft.Build.Tasks.Git.props",
+        "buildTransitive/Microsoft.Build.Tasks.Git.targets",
+        "microsoft.build.tasks.git.10.0.303.nupkg.sha512",
         "microsoft.build.tasks.git.nuspec",
-        "tools/core/Microsoft.Build.Tasks.Git.dll",
-        "tools/core/cs/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/de/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/es/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/fr/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/it/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/ja/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/ko/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/pl/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/pt-BR/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/ru/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/tr/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/zh-Hans/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/core/zh-Hant/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/Microsoft.Build.Tasks.Git.dll",
-        "tools/net472/System.Collections.Immutable.dll",
-        "tools/net472/cs/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/de/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/es/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/fr/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/it/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/ja/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/ko/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/pl/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/pt-BR/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/ru/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/tr/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/zh-Hans/Microsoft.Build.Tasks.Git.resources.dll",
-        "tools/net472/zh-Hant/Microsoft.Build.Tasks.Git.resources.dll"
+        "tools/net/Microsoft.Build.Tasks.Git.deps.json",
+        "tools/net/Microsoft.Build.Tasks.Git.dll",
+        "tools/net/Microsoft.Build.Tasks.Git.pdb",
+        "tools/net/System.IO.Hashing.dll",
+        "tools/net/cs/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/de/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/es/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/fr/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/it/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/ja/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/ko/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/pl/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/pt-BR/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/ru/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/tr/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/zh-Hans/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/net/zh-Hant/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/Microsoft.Build.Tasks.Git.dll",
+        "tools/netframework/Microsoft.Build.Tasks.Git.dll.config",
+        "tools/netframework/Microsoft.Build.Tasks.Git.pdb",
+        "tools/netframework/System.Buffers.dll",
+        "tools/netframework/System.IO.Hashing.dll",
+        "tools/netframework/System.Memory.dll",
+        "tools/netframework/System.Numerics.Vectors.dll",
+        "tools/netframework/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/netframework/cs/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/de/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/es/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/fr/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/it/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/ja/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/ko/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/pl/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/pt-BR/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/ru/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/tr/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/zh-Hans/Microsoft.Build.Tasks.Git.resources.dll",
+        "tools/netframework/zh-Hant/Microsoft.Build.Tasks.Git.resources.dll"
       ]
     },
-    "Microsoft.SourceLink.Common/8.0.0": {
-      "sha512": "dk9JPxTCIevS75HyEQ0E4OVAFhB2N+V9ShCXf8Q6FkUQZDkgLI12y679Nym1YqsiSysuQskT7Z+6nUf3yab6Vw==",
+    "Microsoft.SourceLink.Common/10.0.303": {
+      "sha512": "rEJw+kxSZHFRnSR5rIT2I4qYDnEhoOOl0SGS7wCeYXG88u008LwIb0oEZtj/auGvaQBMvy7jvPu6VFli8zUAZg==",
       "type": "package",
-      "path": "microsoft.sourcelink.common/8.0.0",
+      "path": "microsoft.sourcelink.common/10.0.303",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.txt",
         "build/InitializeSourceControlInformation.targets",
         "build/Microsoft.SourceLink.Common.props",
         "build/Microsoft.SourceLink.Common.targets",
         "buildMultiTargeting/Microsoft.SourceLink.Common.props",
         "buildMultiTargeting/Microsoft.SourceLink.Common.targets",
-        "microsoft.sourcelink.common.8.0.0.nupkg.sha512",
+        "buildTransitive/Microsoft.SourceLink.Common.props",
+        "buildTransitive/Microsoft.SourceLink.Common.targets",
+        "microsoft.sourcelink.common.10.0.303.nupkg.sha512",
         "microsoft.sourcelink.common.nuspec",
-        "tools/core/Microsoft.SourceLink.Common.dll",
-        "tools/core/cs/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/de/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/es/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/fr/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/it/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/ja/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/ko/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/pl/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/pt-BR/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/ru/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/tr/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/zh-Hans/Microsoft.SourceLink.Common.resources.dll",
-        "tools/core/zh-Hant/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/Microsoft.SourceLink.Common.dll",
-        "tools/net472/cs/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/de/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/es/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/fr/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/it/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/ja/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/ko/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/pl/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/pt-BR/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/ru/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/tr/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/zh-Hans/Microsoft.SourceLink.Common.resources.dll",
-        "tools/net472/zh-Hant/Microsoft.SourceLink.Common.resources.dll"
+        "tools/net/Microsoft.SourceLink.Common.deps.json",
+        "tools/net/Microsoft.SourceLink.Common.dll",
+        "tools/net/Microsoft.SourceLink.Common.pdb",
+        "tools/net/cs/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/de/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/es/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/fr/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/it/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/ja/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/ko/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/pl/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/pt-BR/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/ru/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/tr/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/zh-Hans/Microsoft.SourceLink.Common.resources.dll",
+        "tools/net/zh-Hant/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/Microsoft.SourceLink.Common.dll",
+        "tools/netframework/Microsoft.SourceLink.Common.dll.config",
+        "tools/netframework/Microsoft.SourceLink.Common.pdb",
+        "tools/netframework/cs/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/de/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/es/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/fr/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/it/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/ja/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/ko/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/pl/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/pt-BR/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/ru/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/tr/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/zh-Hans/Microsoft.SourceLink.Common.resources.dll",
+        "tools/netframework/zh-Hant/Microsoft.SourceLink.Common.resources.dll"
       ]
     },
-    "Microsoft.SourceLink.GitHub/8.0.0": {
-      "sha512": "G5q7OqtwIyGTkeIOAc3u2ZuV/kicQaec5EaRnc0pIeSnh9LUjj+PYQrJYBURvDt7twGl2PKA7nSN0kz1Zw5bnQ==",
+    "Microsoft.SourceLink.GitHub/10.0.303": {
+      "sha512": "fxqLxLWx4yBAabjJgSIehVITPysG30YwAMWI6LkWyrgxDlnzFKITVj9SpBAGDeFlM2QR91T4X7Z3MFkzb4kzEw==",
       "type": "package",
-      "path": "microsoft.sourcelink.github/8.0.0",
+      "path": "microsoft.sourcelink.github/10.0.303",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.txt",
         "build/Microsoft.SourceLink.GitHub.props",
         "build/Microsoft.SourceLink.GitHub.targets",
         "buildMultiTargeting/Microsoft.SourceLink.GitHub.props",
         "buildMultiTargeting/Microsoft.SourceLink.GitHub.targets",
-        "microsoft.sourcelink.github.8.0.0.nupkg.sha512",
+        "microsoft.sourcelink.github.10.0.303.nupkg.sha512",
         "microsoft.sourcelink.github.nuspec",
-        "tools/core/Microsoft.SourceLink.GitHub.dll",
-        "tools/core/cs/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/de/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/es/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/fr/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/it/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/ja/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/ko/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/pl/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/pt-BR/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/ru/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/tr/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/zh-Hans/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/core/zh-Hant/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/Microsoft.SourceLink.GitHub.dll",
-        "tools/net472/cs/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/de/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/es/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/fr/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/it/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/ja/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/ko/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/pl/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/pt-BR/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/ru/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/tr/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/zh-Hans/Microsoft.SourceLink.GitHub.resources.dll",
-        "tools/net472/zh-Hant/Microsoft.SourceLink.GitHub.resources.dll"
+        "tools/net/Microsoft.SourceLink.GitHub.deps.json",
+        "tools/net/Microsoft.SourceLink.GitHub.dll",
+        "tools/net/Microsoft.SourceLink.GitHub.pdb",
+        "tools/net/System.IO.Hashing.dll",
+        "tools/net/cs/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/de/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/es/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/fr/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/it/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/ja/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/ko/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/pl/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/pt-BR/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/ru/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/tr/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/zh-Hans/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/net/zh-Hant/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/Microsoft.SourceLink.GitHub.dll",
+        "tools/netframework/Microsoft.SourceLink.GitHub.dll.config",
+        "tools/netframework/Microsoft.SourceLink.GitHub.pdb",
+        "tools/netframework/System.Buffers.dll",
+        "tools/netframework/System.IO.Hashing.dll",
+        "tools/netframework/System.Memory.dll",
+        "tools/netframework/System.Numerics.Vectors.dll",
+        "tools/netframework/System.Runtime.CompilerServices.Unsafe.dll",
+        "tools/netframework/cs/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/de/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/es/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/fr/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/it/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/ja/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/ko/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/pl/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/pt-BR/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/ru/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/tr/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/zh-Hans/Microsoft.SourceLink.GitHub.resources.dll",
+        "tools/netframework/zh-Hant/Microsoft.SourceLink.GitHub.resources.dll"
+      ]
+    },
+    "System.IO.Hashing/10.0.11": {
+      "sha512": "OzKDcIRkeNJeC8qAsbn8yJXnfTLP1dtkWILe+T56Gf/z+IkAASi7sMqLqJQat08j5z/mRN5xVtoAwbkMNMoBUQ==",
+      "type": "package",
+      "path": "system.io.hashing/10.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Hashing.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net8.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Hashing.targets",
+        "lib/net10.0/System.IO.Hashing.dll",
+        "lib/net10.0/System.IO.Hashing.xml",
+        "lib/net462/System.IO.Hashing.dll",
+        "lib/net462/System.IO.Hashing.xml",
+        "lib/net8.0/System.IO.Hashing.dll",
+        "lib/net8.0/System.IO.Hashing.xml",
+        "lib/net9.0/System.IO.Hashing.dll",
+        "lib/net9.0/System.IO.Hashing.xml",
+        "lib/netstandard2.0/System.IO.Hashing.dll",
+        "lib/netstandard2.0/System.IO.Hashing.xml",
+        "system.io.hashing.10.0.11.nupkg.sha512",
+        "system.io.hashing.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     }
   },
   "projectFileDependencyGroups": {
     "net10.0-windows10.0.19041.0": [
-      "Microsoft.SourceLink.GitHub >= 8.0.0",
+      "Microsoft.SourceLink.GitHub >= 10.0.303",
       "iNKORE.UI.WPF >= 1.2.8",
       "iNKORE.UI.WPF.Modern >= 0.10.2.1"
     ]
@@ -334,7 +413,7 @@
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[8.0.0, )"
+            "version": "[10.0.303, )"
           },
           "iNKORE.UI.WPF": {
             "target": "Package",
@@ -666,17 +745,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Microsoft.Build.Tasks.Git' 8.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-23fw-v26w-5fgq",
-      "libraryId": "Microsoft.Build.Tasks.Git",
-      "targetGraphs": [
-        "net10.0-windows10.0.19041.0"
-      ]
-    }
-  ]
+  }
 }

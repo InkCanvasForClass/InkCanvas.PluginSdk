@@ -1,28 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "hu/Qo9eLyQA=",
+  "dgSpecHash": "XSs4kY9Bgdw=",
   "success": true,
   "projectFilePath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.Controls\\InkCanvas.Controls.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\runneradmin\\.nuget\\packages\\inkore.ui.wpf\\1.2.8\\inkore.ui.wpf.1.2.8.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\inkore.ui.wpf.modern\\0.10.2.1\\inkore.ui.wpf.modern.0.10.2.1.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.build.tasks.git\\8.0.0\\microsoft.build.tasks.git.8.0.0.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.common\\8.0.0\\microsoft.sourcelink.common.8.0.0.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.github\\8.0.0\\microsoft.sourcelink.github.8.0.0.nupkg.sha512",
+    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.build.tasks.git\\10.0.303\\microsoft.build.tasks.git.10.0.303.nupkg.sha512",
+    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.common\\10.0.303\\microsoft.sourcelink.common.10.0.303.nupkg.sha512",
+    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.github\\10.0.303\\microsoft.sourcelink.github.10.0.303.nupkg.sha512",
+    "C:\\Users\\runneradmin\\.nuget\\packages\\system.io.hashing\\10.0.11\\system.io.hashing.10.0.11.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1902",
-      "level": "Warning",
-      "message": "Package 'Microsoft.Build.Tasks.Git' 8.0.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-23fw-v26w-5fgq",
-      "projectPath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.Controls\\InkCanvas.Controls.csproj",
-      "warningLevel": 1,
-      "filePath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.Controls\\InkCanvas.Controls.csproj",
-      "libraryId": "Microsoft.Build.Tasks.Git",
-      "targetGraphs": [
-        "net10.0-windows10.0.19041.0"
-      ]
-    }
-  ]
+  "logs": []
 }

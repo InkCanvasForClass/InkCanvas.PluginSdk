@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v10.0": {
       "InkCanvas.Controls/1.0.0": {
         "dependencies": {
+          "Microsoft.SourceLink.GitHub": "10.0.303",
           "iNKORE.UI.WPF": "1.2.8",
           "iNKORE.UI.WPF.Modern": "0.10.2.1",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
@@ -50,6 +51,19 @@
             "fileVersion": "0.10.2.0"
           }
         }
+      },
+      "Microsoft.SourceLink.GitHub/10.0.303": {
+        "dependencies": {
+          "System.IO.Hashing": "10.0.11"
+        }
+      },
+      "System.IO.Hashing/10.0.11": {
+        "runtime": {
+          "lib/net10.0/System.IO.Hashing.dll": {
+            "assemblyVersion": "10.0.0.11",
+            "fileVersion": "10.0.1126.37416"
+          }
+        }
       }
     }
   },
@@ -77,6 +91,20 @@
       "sha512": "sha512-nGwuuVul+TcLCTgPmaAZCc0fYFqUpCNZ8PiulVT3gZnsWt/AvxMZ0DSPpuyI/iRPc/NhFIg9lSIR7uaHWV0I/Q==",
       "path": "inkore.ui.wpf.modern/0.10.2.1",
       "hashPath": "inkore.ui.wpf.modern.0.10.2.1.nupkg.sha512"
+    },
+    "Microsoft.SourceLink.GitHub/10.0.303": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fxqLxLWx4yBAabjJgSIehVITPysG30YwAMWI6LkWyrgxDlnzFKITVj9SpBAGDeFlM2QR91T4X7Z3MFkzb4kzEw==",
+      "path": "microsoft.sourcelink.github/10.0.303",
+      "hashPath": "microsoft.sourcelink.github.10.0.303.nupkg.sha512"
+    },
+    "System.IO.Hashing/10.0.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OzKDcIRkeNJeC8qAsbn8yJXnfTLP1dtkWILe+T56Gf/z+IkAASi7sMqLqJQat08j5z/mRN5xVtoAwbkMNMoBUQ==",
+      "path": "system.io.hashing/10.0.11",
+      "hashPath": "system.io.hashing.10.0.11.nupkg.sha512"
     }
   }
 }
