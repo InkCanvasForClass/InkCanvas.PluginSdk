@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "InkCanvas.PluginSdk/1.8.0.11-ge1cd8b78ea": {
+      "InkCanvas.PluginSdk/1.8.0.11-gd9f79a7a3f": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.SourceLink.GitHub": "10.0.303",
@@ -63,7 +63,7 @@
     }
   },
   "libraries": {
-    "InkCanvas.PluginSdk/1.8.0.11-ge1cd8b78ea": {
+    "InkCanvas.PluginSdk/1.8.0.11-gd9f79a7a3f": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
