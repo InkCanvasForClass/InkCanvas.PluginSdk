@@ -10,7 +10,7 @@
         "dependencies": {
           "Microsoft.SourceLink.GitHub": "10.0.303",
           "iNKORE.UI.WPF": "1.2.8",
-          "iNKORE.UI.WPF.Modern": "0.10.2.1",
+          "iNKORE.UI.WPF.Modern": "0.11.0",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
         },
         "runtime": {
@@ -37,18 +37,18 @@
           }
         }
       },
-      "iNKORE.UI.WPF.Modern/0.10.2.1": {
+      "iNKORE.UI.WPF.Modern/0.11.0": {
         "dependencies": {
           "iNKORE.UI.WPF": "1.2.8"
         },
         "runtime": {
           "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.Controls.dll": {
-            "assemblyVersion": "0.10.2.0",
-            "fileVersion": "0.10.2.0"
+            "assemblyVersion": "0.11.0.0",
+            "fileVersion": "0.11.0.0"
           },
           "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.dll": {
-            "assemblyVersion": "0.10.2.0",
-            "fileVersion": "0.10.2.0"
+            "assemblyVersion": "0.11.0.0",
+            "fileVersion": "0.11.0.0"
           }
         }
       },
@@ -85,12 +85,12 @@
       "path": "inkore.ui.wpf/1.2.8",
       "hashPath": "inkore.ui.wpf.1.2.8.nupkg.sha512"
     },
-    "iNKORE.UI.WPF.Modern/0.10.2.1": {
+    "iNKORE.UI.WPF.Modern/0.11.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nGwuuVul+TcLCTgPmaAZCc0fYFqUpCNZ8PiulVT3gZnsWt/AvxMZ0DSPpuyI/iRPc/NhFIg9lSIR7uaHWV0I/Q==",
-      "path": "inkore.ui.wpf.modern/0.10.2.1",
-      "hashPath": "inkore.ui.wpf.modern.0.10.2.1.nupkg.sha512"
+      "sha512": "sha512-F6DdPt6ibY+Bo5vgfeRlPPJBAr+xjMeOpGtrBlEUh61g1XXUrf+1YfWKYKsJlGHrJAjQ25W+UldYwIvDu+wH7A==",
+      "path": "inkore.ui.wpf.modern/0.11.0",
+      "hashPath": "inkore.ui.wpf.modern.0.11.0.nupkg.sha512"
     },
     "Microsoft.SourceLink.GitHub/10.0.303": {
       "type": "package",

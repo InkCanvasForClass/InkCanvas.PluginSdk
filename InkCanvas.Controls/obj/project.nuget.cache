@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2P7e5v0NYOI=",
+  "dgSpecHash": "m42nfUkvxCw=",
   "success": true,
   "projectFilePath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.Controls\\InkCanvas.Controls.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\runneradmin\\.nuget\\packages\\inkore.ui.wpf\\1.2.8\\inkore.ui.wpf.1.2.8.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\inkore.ui.wpf.modern\\0.10.2.1\\inkore.ui.wpf.modern.0.10.2.1.nupkg.sha512",
+    "C:\\Users\\runneradmin\\.nuget\\packages\\inkore.ui.wpf.modern\\0.11.0\\inkore.ui.wpf.modern.0.11.0.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.build.tasks.git\\10.0.303\\microsoft.build.tasks.git.10.0.303.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.common\\10.0.303\\microsoft.sourcelink.common.10.0.303.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.github\\10.0.303\\microsoft.sourcelink.github.10.0.303.nupkg.sha512",
