@@ -2,23 +2,7 @@
   "version": 4,
   "targets": {
     "net10.0-windows10.0.19041.0": {
-      "iNKORE.UI.WPF/1.2.8": {
-        "type": "package",
-        "compile": {
-          "lib/net6.0-windows7.0/iNKORE.UI.WPF.dll": {
-            "related": ".deps.json;.pdb"
-          }
-        },
-        "runtime": {
-          "lib/net6.0-windows7.0/iNKORE.UI.WPF.dll": {
-            "related": ".deps.json;.pdb"
-          }
-        },
-        "frameworkReferences": [
-          "Microsoft.WindowsDesktop.App.WPF"
-        ]
-      },
-      "iNKORE.UI.WPF.Modern/0.11.0": {
+      "InkCanvasForClass.UI.WPF.Modern/0.11.0-icc.7df536a": {
         "type": "package",
         "dependencies": {
           "iNKORE.UI.WPF": "1.2.8"
@@ -37,6 +21,22 @@
           },
           "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.dll": {
             "related": ".Controls.pdb;.pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "iNKORE.UI.WPF/1.2.8": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0-windows7.0/iNKORE.UI.WPF.dll": {
+            "related": ".deps.json;.pdb"
+          }
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/iNKORE.UI.WPF.dll": {
+            "related": ".deps.json;.pdb"
           }
         },
         "frameworkReferences": [
@@ -103,6 +103,34 @@
     }
   },
   "libraries": {
+    "InkCanvasForClass.UI.WPF.Modern/0.11.0-icc.7df536a": {
+      "sha512": "6USS/LrkXX956szojxl+YF980XsJHmgvUm7j+alRTZS/3ShTPC3sNCnwAhe7n2Rl17aQAS1h32/H+FMImwX9yg==",
+      "type": "package",
+      "path": "inkcanvasforclass.ui.wpf.modern/0.11.0-icc.7df536a",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "icon.png",
+        "inkcanvasforclass.ui.wpf.modern.0.11.0-icc.7df536a.nupkg.sha512",
+        "inkcanvasforclass.ui.wpf.modern.nuspec",
+        "lib/net452/iNKORE.UI.WPF.Modern.Controls.dll",
+        "lib/net452/iNKORE.UI.WPF.Modern.Controls.pdb",
+        "lib/net452/iNKORE.UI.WPF.Modern.dll",
+        "lib/net452/iNKORE.UI.WPF.Modern.pdb",
+        "lib/net452/iNKORE.UI.WPF.Modern.xml",
+        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.Controls.dll",
+        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.Controls.pdb",
+        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.dll",
+        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.pdb",
+        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.xml",
+        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.Controls.dll",
+        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.Controls.pdb",
+        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.dll",
+        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.pdb",
+        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.xml"
+      ]
+    },
     "iNKORE.UI.WPF/1.2.8": {
       "sha512": "7b+z25JFdhGAfyJqlVIF0vLbmgsRvqDZMvhGPTz20gzQigDPMqVUOoCCKB5824GtYsjFCYNilmaowb+4yWATkQ==",
       "type": "package",
@@ -119,34 +147,6 @@
         "lib/net6.0-windows7.0/iNKORE.UI.WPF.deps.json",
         "lib/net6.0-windows7.0/iNKORE.UI.WPF.dll",
         "lib/net6.0-windows7.0/iNKORE.UI.WPF.pdb"
-      ]
-    },
-    "iNKORE.UI.WPF.Modern/0.11.0": {
-      "sha512": "F6DdPt6ibY+Bo5vgfeRlPPJBAr+xjMeOpGtrBlEUh61g1XXUrf+1YfWKYKsJlGHrJAjQ25W+UldYwIvDu+wH7A==",
-      "type": "package",
-      "path": "inkore.ui.wpf.modern/0.11.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "icon.png",
-        "inkore.ui.wpf.modern.0.11.0.nupkg.sha512",
-        "inkore.ui.wpf.modern.nuspec",
-        "lib/net452/iNKORE.UI.WPF.Modern.Controls.dll",
-        "lib/net452/iNKORE.UI.WPF.Modern.Controls.pdb",
-        "lib/net452/iNKORE.UI.WPF.Modern.dll",
-        "lib/net452/iNKORE.UI.WPF.Modern.pdb",
-        "lib/net452/iNKORE.UI.WPF.Modern.xml",
-        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.Controls.dll",
-        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.Controls.pdb",
-        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.dll",
-        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.pdb",
-        "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.xml",
-        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.Controls.dll",
-        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.Controls.pdb",
-        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.dll",
-        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.pdb",
-        "lib/net6.0-windows7.0/iNKORE.UI.WPF.Modern.xml"
       ]
     },
     "Microsoft.Build.Tasks.Git/10.0.303": {
@@ -348,9 +348,9 @@
   },
   "projectFileDependencyGroups": {
     "net10.0-windows10.0.19041.0": [
+      "InkCanvasForClass.UI.WPF.Modern >= 0.11.0-icc.7df536a",
       "Microsoft.SourceLink.GitHub >= 10.0.303",
-      "iNKORE.UI.WPF >= 1.2.8",
-      "iNKORE.UI.WPF.Modern >= 0.11.0"
+      "iNKORE.UI.WPF >= 1.2.8"
     ]
   },
   "packageFolders": {
@@ -406,6 +406,10 @@
         "framework": "net10.0-windows10.0.19041",
         "targetAlias": "net10.0-windows10.0.19041.0",
         "dependencies": {
+          "InkCanvasForClass.UI.WPF.Modern": {
+            "target": "Package",
+            "version": "[0.11.0-icc.7df536a, )"
+          },
           "Microsoft.SourceLink.GitHub": {
             "suppressParent": "All",
             "target": "Package",
@@ -414,10 +418,6 @@
           "iNKORE.UI.WPF": {
             "target": "Package",
             "version": "[1.2.8, )"
-          },
-          "iNKORE.UI.WPF.Modern": {
-            "target": "Package",
-            "version": "[0.11.0, )"
           }
         },
         "imports": [
