@@ -1280,6 +1280,12 @@
         <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.PopupStateChanged">
             <summary>弹窗实际打开或关闭时由宿主通知插件。</summary>
         </member>
+        <member name="P:Ink_Canvas.Plugins.PluginToolbarItemInfo.AutoAddToActiveConfig">
+            <summary>
+            是否在插件首次注册时自动添加到当前活跃工具栏配置中。
+            默认为 true。若设为 false，则仅添加到工具栏组件库，需用户在设置中手动添加。
+            </summary>
+        </member>
         <member name="T:Ink_Canvas.Plugins.PluginToolbarSettingInfo">
             <summary>
             插件工具栏项的自定义设置描述。
