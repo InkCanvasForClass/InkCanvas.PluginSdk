@@ -530,6 +530,14 @@
             返回是否成功触发流程；当前页冻结或不可插入时返回 false。
             </summary>
         </member>
+        <member name="M:Ink_Canvas.Plugins.ICanvasInkService.InsertImageFromFileAsync(System.String)">
+            <summary>
+            从本地文件异步插入图片到完成导入时的当前屏幕批注/白板，不打开文件对话框、不使用剪贴板。
+            复用宿主依赖文件保存及图片压缩，完成居中缩放、交互绑定和撤销记录后显示画布并切换到选择模式。
+            </summary>
+            <param name="path">图片文件路径，支持 PNG、JPG/JPEG、BMP、GIF、TIF/TIFF、ICO。</param>
+            <returns>图片已添加到画布时返回 true；无效路径、不支持的格式、加载失败或冻结页返回 false。</returns>
+        </member>
         <member name="M:Ink_Canvas.Plugins.ICanvasInkService.ChangeBackgroundColor">
             <summary>更换当前画布背景色（打开颜色选择）。</summary>
         </member>
@@ -1049,6 +1057,33 @@
         </member>
         <member name="P:Ink_Canvas.Plugins.PluginNotification.CreatedAt">
             <summary>创建时间。</summary>
+        </member>
+        <member name="T:Ink_Canvas.Plugins.IOpenFileFormatService">
+            <summary>
+            打开格式服务：供插件向宿主工具栏「打开」按钮的文件对话框注册额外的可打开格式。
+            <para>
+            注册后，宿主对话框的「所有支持的文件」筛选项会包含插件扩展名，并为每组追加一个独立筛选项；
+            用户选中这些扩展名的文件时，宿主在 UI 线程调用对应 <c>handler</c>。
+            </para>
+            <para>
+            必须在插件 <c>Initialize</c> 阶段调用（与 <see cref="M:Ink_Canvas.Plugins.IPluginHost.RegisterService``1(``0)"/> 约束一致），
+            插件卸载时宿主自动注销其全部格式。
+            </para>
+            <para>
+            宿主内置格式（.icstk/.xml/.zip/.uink）不能被覆盖；多个插件注册同一扩展名时先注册者生效，
+            后注册者的该扩展名被忽略并写警告日志。
+            </para>
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Plugins.IOpenFileFormatService.RegisterFormat(System.String,System.Collections.Generic.IEnumerable{System.String},System.Func{System.String,System.Boolean})">
+            <summary>
+            注册一组可打开格式。一个插件可多次调用以注册多组，例如「希沃白板课件」*.enb;*.enbx、「文档」*.docx;*.pdf。
+            </summary>
+            <param name="groupName">组显示名称，用作对话框筛选项名称。</param>
+            <param name="extensions">扩展名列表（可带或不带点、忽略大小写），如 ".enb"、"enbx"。</param>
+            <param name="handler">打开回调，参数为用户选中的文件完整路径；返回 <c>true</c> 表示已处理，
+            返回 <c>false</c> 或抛异常时宿主提示打开失败。在 UI 线程执行。</param>
+            <returns>至少有一个扩展名注册成功时返回 <c>true</c>；不在 Initialize 阶段、参数无效或扩展名全部被拒绝时返回 <c>false</c>。</returns>
         </member>
         <member name="T:Ink_Canvas.Plugins.IPlugin">
             <summary>
@@ -1677,6 +1712,15 @@
             <summary>
             是否允许点击页码按钮跳页。外部演示源通常没有缩略图与跳页对话框，
             置为 <c>false</c> 时宿主会禁用页码点击与增强预览。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PresentationSourceDescriptor.SupportsElementSelection">
+            <summary>是否在本次放映期间显示课件“选择”工具。不涉及宿主墨迹选择。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Plugins.PresentationSourceDescriptor.ElementSelectionChanged">
+            <summary>
+            宿主进入或离开课件选择工具时在 UI 线程回调。true 时课件区域输入穿透，
+            工具栏仍可操作；结束放映时一定退出选择。插件应同步自己的播放器交互模式。
             </summary>
         </member>
         <member name="T:Ink_Canvas.Plugins.IQuoteService">
