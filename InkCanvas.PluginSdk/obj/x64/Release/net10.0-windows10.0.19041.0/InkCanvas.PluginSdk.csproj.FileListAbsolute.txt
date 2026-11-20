@@ -11,3 +11,4 @@ D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release
 D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net10.0-windows10.0.19041.0\InkCanvas.PluginSdk.xml
 D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net10.0-windows10.0.19041.0\InkCanvas.PluginSdk.pdb
 D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net10.0-windows10.0.19041.0\ref\InkCanvas.PluginSdk.dll
+D:\a\InkCanvas.PluginSdk\InkCanvas.PluginSdk\InkCanvas.PluginSdk\obj\x64\Release\net10.0-windows10.0.19041.0\InkCanva.42869CE0.Up2Date

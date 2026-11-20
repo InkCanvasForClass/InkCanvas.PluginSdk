@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hYnVC4u/3cU=",
+  "dgSpecHash": "+9kH5lO6Mc0=",
   "success": true,
   "projectFilePath": "D:\\a\\InkCanvas.PluginSdk\\InkCanvas.PluginSdk\\InkCanvas.Controls\\InkCanvas.Controls.csproj",
   "expectedPackageFiles": [
@@ -10,7 +10,7 @@
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.common\\10.0.303\\microsoft.sourcelink.common.10.0.303.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.sourcelink.github\\10.0.303\\microsoft.sourcelink.github.10.0.303.nupkg.sha512",
     "C:\\Users\\runneradmin\\.nuget\\packages\\system.io.hashing\\10.0.11\\system.io.hashing.10.0.11.nupkg.sha512",
-    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
+    "C:\\Users\\runneradmin\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.87\\microsoft.windows.sdk.net.ref.10.0.19041.87.nupkg.sha512"
   ],
   "logs": []
 }

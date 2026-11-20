@@ -11,21 +11,21 @@
           "InkCanvasForClass.UI.WPF.Modern": "0.11.0-icc.7df536a",
           "Microsoft.SourceLink.GitHub": "10.0.303",
           "iNKORE.UI.WPF": "1.2.8",
-          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.57"
+          "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.87"
         },
         "runtime": {
           "InkCanvas.Controls.dll": {}
         }
       },
-      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.57": {
+      "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.87": {
         "runtime": {
           "Microsoft.Windows.SDK.NET.dll": {
             "assemblyVersion": "10.0.19041.38",
-            "fileVersion": "10.0.19041.55"
+            "fileVersion": "10.0.19041.86"
           },
           "WinRT.Runtime.dll": {
-            "assemblyVersion": "2.2.0.0",
-            "fileVersion": "2.2.0.48161"
+            "assemblyVersion": "2.3.1.0",
+            "fileVersion": "2.3.1.54291"
           }
         }
       },
@@ -36,11 +36,13 @@
         "runtime": {
           "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.Controls.dll": {
             "assemblyVersion": "0.11.0.0",
-            "fileVersion": "0.11.0.0"
+            "fileVersion": "0.11.0.0",
+            "localPath": "iNKORE.UI.WPF.Modern.Controls.dll"
           },
           "lib/net6.0-windows10.0.18362/iNKORE.UI.WPF.Modern.dll": {
             "assemblyVersion": "0.11.0.0",
-            "fileVersion": "0.11.0.0"
+            "fileVersion": "0.11.0.0",
+            "localPath": "iNKORE.UI.WPF.Modern.dll"
           }
         }
       },
@@ -48,7 +50,8 @@
         "runtime": {
           "lib/net6.0-windows7.0/iNKORE.UI.WPF.dll": {
             "assemblyVersion": "1.2.8.0",
-            "fileVersion": "1.2.8.0"
+            "fileVersion": "1.2.8.0",
+            "localPath": "iNKORE.UI.WPF.dll"
           }
         }
       },
@@ -61,7 +64,8 @@
         "runtime": {
           "lib/net10.0/System.IO.Hashing.dll": {
             "assemblyVersion": "10.0.0.11",
-            "fileVersion": "10.0.1126.37416"
+            "fileVersion": "10.0.1126.37416",
+            "localPath": "System.IO.Hashing.dll"
           }
         }
       }
@@ -73,7 +77,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.57": {
+    "runtimepack.Microsoft.Windows.SDK.NET.Ref/10.0.19041.87": {
       "type": "runtimepack",
       "serviceable": false,
       "sha512": ""
