@@ -44,6 +44,73 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Ink_Canvas.Controls.InkResourceCache">
+            <summary>
+            工具栏图标几何与画刷的静态缓存。
+            图标路径字符串、颜色都是不可变输入，解析/创建一次后的产物可以全局共享：
+            缓存对象一律冻结（Freezable.Freeze），既保证跨线程安全，也避免每次工具切换
+            或主题刷新时重复解析 Path 数据、重复实例化画刷。
+            </summary>
+        </member>
+        <member name="P:Ink_Canvas.Controls.InkResourceCache.GeometryParseCount">
+            <summary>累计 <see cref="M:System.Windows.Media.Geometry.Parse(System.String)"/> 次数，用于校验缓存命中（防回归）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Controls.InkResourceCache.GeometryCacheHits">
+            <summary>累计几何缓存命中次数。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Controls.InkResourceCache.BrushCreateCount">
+            <summary>累计画刷创建次数，用于校验缓存命中（防回归）。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Controls.InkResourceCache.BrushCacheHits">
+            <summary>累计画刷缓存命中次数。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Controls.InkResourceCache.CachedGeometryCount">
+            <summary>已缓存的不同图标路径数量。</summary>
+        </member>
+        <member name="P:Ink_Canvas.Controls.InkResourceCache.CachedBrushCount">
+            <summary>已缓存的不同画刷颜色数量。</summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.GetGeometry(System.String)">
+            <summary>
+            获取图标路径对应的几何对象。相同路径始终返回同一个已冻结实例。
+            </summary>
+            <param name="path">XAML 几何路径字符串。</param>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.GetBrush(System.Windows.Media.Color)">
+            <summary>
+            获取颜色对应的纯色画刷。相同颜色始终返回同一个已冻结实例。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.SetGeometry(System.Windows.Media.GeometryDrawing,System.String)">
+            <summary>
+            仅在几何实例发生变化时才写入 <see cref="P:System.Windows.Media.GeometryDrawing.Geometry"/>，返回是否真正发生了更新。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.SetGeometry(System.Windows.Media.GeometryDrawing,System.Windows.Media.Geometry)">
+            <summary>
+            仅在几何实例发生变化时才写入 <see cref="P:System.Windows.Media.GeometryDrawing.Geometry"/>，返回是否真正发生了更新。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.SetBrush(System.Windows.Media.GeometryDrawing,System.Windows.Media.Color)">
+            <summary>
+            仅在画刷实例发生变化时才写入 <see cref="P:System.Windows.Media.GeometryDrawing.Brush"/>，返回是否真正发生了更新。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.SetBrush(System.Windows.Media.GeometryDrawing,System.Windows.Media.Brush)">
+            <summary>
+            仅在画刷实例发生变化时才写入 <see cref="P:System.Windows.Media.GeometryDrawing.Brush"/>，返回是否真正发生了更新。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.SetBrush(System.Windows.Media.Brush@,System.Windows.Media.Color)">
+            <summary>
+            仅在画刷实例发生变化时才写入目标画刷属性的当前值，返回是否真正发生了更新。
+            </summary>
+        </member>
+        <member name="M:Ink_Canvas.Controls.InkResourceCache.SetBrush(System.Windows.Media.Brush@,System.Windows.Media.Brush)">
+            <summary>
+            仅在画刷实例发生变化时才写入目标画刷属性的当前值，返回是否真正发生了更新。
+            </summary>
+        </member>
         <member name="T:Ink_Canvas.Controls.LabeledSettingsCard">
             <summary>
             LabeledSettingsCard
